@@ -1,42 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Portfolio Website</title>
+    <title>George | Portfolio</title>
 </head>
 <body>
-    <header>
-        <a href="#" class="logo">George</a>
+    <div class="ambient ambient-left"></div>
+    <div class="ambient ambient-right"></div>
 
-        <nav>
-            <a href="#" class="active"> Home</a>
-            <a href="#" >Services</a>
-            <a href="#" >Skills</a>
-            <a href="#" >Education</a>
-            <a href="#" >Experience</a>
-            <a href="#" >Contact</a>
-        </nav>
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <a href="#home" class="brand">George</a>
+            <nav class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
     </header>
-    <section class="home">
-        <div class="home-img">
-            <img src="main.jpg" alt="">
-        </div>
-        <div class="home-content">
-            <h1>Hi, It's <span>George</span></h1>
-            <h3 class="typing-text">I'm a Undergraduate<span></span></h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus labore dolores esse. Odit similique doloribus tenetur doloremque, sunt commodi in ipsa repudiandae debitis deleniti blanditiis quibusdam quaerat neque asperiores ea.</p>
-            <div class="social-icons">
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#"><i class="fa-brands fa-github"></i></a>
-                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+    <main>
+        <section id="home" class="hero-section reveal">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <span class="eyebrow">Undergraduate designer</span>
+                    <h1>George</h1>
+                    <p class="hero-description">Learning. Building. Improving one calm interface at a time.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="button button-primary">Say hello</a>
+                        <a href="#skills" class="button button-secondary">View skills</a>
+                    </div>
+                </div>
+                <div class="hero-panel card-panel reveal">
+                    <div class="panel-tag">Quick intro</div>
+                    <p class="panel-text">Focused on quiet, polished front-end work with a subtle, moody rhythm.</p>
+                    <div class="panel-list">
+                        <span>HTML structure</span>
+                        <span>Responsive UI</span>
+                        <span>Soft motion</span>
+                    </div>
+                </div>
             </div>
-            <a href="#" class="btn">meow</a>
-        </div>
-    </section>
+        </section>
+
+        <section id="about" class="section about-section reveal">
+            <div class="container about-grid">
+                <div class="info-card card-panel">
+                    <div class="panel-tag">About</div>
+                    <h2>Design with intention.</h2>
+                    <p>I craft calm digital spaces that feel premium, modern, and easy to move through.</p>
+                </div>
+                <div class="mini-card card-panel">
+                    <span class="mini-label">Current focus</span>
+                    <p>Practicing interface polish, layout rhythm, and subtle motion for refined pages.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section skills-section reveal">
+            <div class="container section-header">
+                <h2>Skills</h2>
+                <p>Core capabilities that shape a polished, atmospheric experience.</p>
+            </div>
+            <div class="container skills-grid">
+                <div class="skill-card card-panel reveal">
+                    <h3>HTML</h3>
+                    <p>Purposeful structure built for clarity, accessibility, and calm flow.</p>
+                </div>
+                <div class="skill-card card-panel reveal">
+                    <h3>CSS</h3>
+                    <p>Modern layout systems, glass surfaces, and subtle motion for depth.</p>
+                </div>
+                <div class="skill-card card-panel reveal">
+                    <h3>Learning</h3>
+                    <p>Iterating quietly with practice, improving details every night.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section reveal">
+            <div class="container contact-grid">
+                <div class="contact-card card-panel">
+                    <div class="panel-tag">Contact</div>
+                    <h2>Let’s connect.</h2>
+                    <p>Profiles are ready to add. For now, the links fit the flow.</p>
+                    <div class="contact-links">
+                        <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                        <a href="#"><i class="fab fa-threads"></i> Threads</a>
+                        <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    </div>
+                </div>
+                <div class="status-card card-panel">
+                    <span class="status-badge">Late-night mode</span>
+                    <h3>Undergraduate</h3>
+                    <p>Practicing front-end craft with calm, refined interaction design.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.18 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
